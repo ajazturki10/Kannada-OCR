@@ -25,6 +25,11 @@ After unfreezing, i.e. layer.trainable = True
 - Epochs : 50
 - Batch Size : 16
 
+# Performance
+
+
+![image](https://user-images.githubusercontent.com/81867085/123999766-7ac45e00-d9f0-11eb-9f93-95e31b190dcb.png)
+
 ## Sample Predictions
 
 ![image](https://github.com/ajazturki10/Kannada-OCR/blob/70751bcb2fcc93bd508c4d26f9115d5a8fcbfc0c/predict_2.PNG)
