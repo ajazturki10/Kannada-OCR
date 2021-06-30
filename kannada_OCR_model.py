@@ -7,6 +7,7 @@ import tensorflow as tf
 from tensorflow import keras
 from sklearn.utils import shuffle
 from keras.utils import np_utils
+from keras.preprocessing.image import ImageDataGenerator
 
 #Load Images
 
@@ -55,6 +56,15 @@ train_labels = np.array(train_labels)
 test_labels = np.array(test_labels)
 val_labels = np.array(val_labels)
 
+#Data Augmentation
+datagen = tf.keras.preprocessing.image.ImageDataGenerator(
+    rotation_range = 30, 
+    width_shift_range = 0.25,
+    height_shift_range = 0.25, 
+    horizontal_flip = True)
+
+datagen.fit(train_images)
+
 #ResNet-50
 resnet = tf.keras.applications.ResNet50(      #Resnet50 Model
     include_top = False) 
@@ -73,7 +83,7 @@ optimizer = keras.optimizers.SGD(learning_rate = 0.2, momentum = 0.9, decay = 0.
 model.compile(loss="sparse_categorical_crossentropy", optimizer = optimizer,
               metrics = ["accuracy"])
 
-history = model.fit(train_images, train_labels,
+history = model.fit(datagen.flow(train_images, train_labels, batch_size = 32),
                     validation_data = (val_images, val_labels),
                     epochs = 5)
 
@@ -92,7 +102,7 @@ model.compile(loss = "sparse_categorical_crossentropy", optimizer = optimizer,
 checkpoint = keras.callbacks.ModelCheckpoint("Kannada_OCR.h5", 
                                             save_best_only = True)
 
-history = model.fit(train_images, train_labels,
+history = model.fit(datagen.flow(train_images, train_labels),
                     batch_size = 16,
                     validation_data = (val_images, val_labels),
                     epochs = 50, 
