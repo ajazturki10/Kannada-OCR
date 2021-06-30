@@ -1,1 +1,5 @@
-# Kannada-OCR
+## Kannada-Object Character Recognition
+
+
+
+
