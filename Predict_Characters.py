@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jun 27 22:37:34 2021
-
-@author: ijazt
-"""
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -83,7 +76,7 @@ preds = {
     61 : '೯'
 }
 
-img = cv2.imread('ka.jpg')
+#img = cv2.imread(filepath/url)
 
 def plot_digit(img):
     plt.figure(figsize = (2, 2))
