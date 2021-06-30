@@ -12,7 +12,7 @@ The dataset used is the Chars74K[http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k
 
 Pretrained Network : `ResNet -50`
 
-Setting layer.trainable =  False (Freezing layers)
+Setting `layer.trainable =  False` (Freezing layers)
    
    - SGD as an optimizer with a learning rate of 0.2
    
@@ -20,7 +20,7 @@ Setting layer.trainable =  False (Freezing layers)
    
    - Batch Size : 16
 
-After unfreezing, i.e. layer.trainable = True
+After unfreezing, set `layer.trainable = True`
 - Optimizer : SGD with a learning rate of 0.01
 - Epochs : 50
 - Batch Size : 16
@@ -29,6 +29,11 @@ After unfreezing, i.e. layer.trainable = True
 
 
 ![image](https://user-images.githubusercontent.com/81867085/123999766-7ac45e00-d9f0-11eb-9f93-95e31b190dcb.png)
+
+
+![image](https://user-images.githubusercontent.com/81867085/123999837-90d21e80-d9f0-11eb-83fc-a346adf395f6.png)
+
+Our model got the testing accuracy of about 97.82%
 
 ## Sample Predictions
 
